@@ -1,39 +1,46 @@
 # TrilhaJavaBasicoPOO
 
-1. Diagrama UML
+# Projeto iPhone: Modelagem UML e Implementação Java
 
-+---------------------+       +-----------------------+
-|      <<interface>>  |       |       <<interface>>   |
-|   ReprodutorMusical |       |   AparelhoTelefonico  |
-+---------------------+       +-----------------------+
-| + tocar(): void     |       | + ligar(numero: String): void |
-| + pausar(): void    |       | + atender(): void             |
-| + selecionarMusica( |       | + iniciarCorreioVoz(): void   |
-|   musica: String):  |       +-----------------------+
-|   void              |
-+---------------------+
+## 1. Diagrama UML
 
-+---------------------+       +---------------------+
-|      <<interface>>  |       |       iPhone        |
-|   NavegadorInternet |       +---------------------+
-+---------------------+       | - modelo: String    |
-| + exibirPagina(     |       | - armazenamento: int|
-|   url: String): void|       +---------------------+
-| + adicionarNovaAba():|      | + tocar(): void    |
-|   void              |       | + pausar(): void   |
-| + atualizarPagina(): |      | + selecionarMusica(|
-|   void              |       |   musica: String): |
-+---------------------+       |   void             |
-                              | + ligar(numero:    |
-                              |   String): void    |
-                              | + atender(): void  |
-                              | + iniciarCorreio-  |
-                              |   Voz(): void      |
-                              | + exibirPagina(    |
-                              |   url: String):    |
-                              |   void             |
-                              | + adicionarNovaAba(|
-                              |   ): void          |
-                              | + atualizarPagina( |
-                              |   ): void          |
-                              +---------------------+                        
+
+classDiagram
+    class iPhone {
+        -String modelo
+        -int armazenamento
+        +tocar() void
+        +pausar() void
+        +selecionarMusica(String musica) void
+        +ligar(String numero) void
+        +atender() void
+        +iniciarCorreioVoz() void
+        +exibirPagina(String url) void
+        +adicionarNovaAba() void
+        +atualizarPagina() void
+    }
+
+    interface ReprodutorMusical {
+        <<interface>>
+        +tocar() void
+        +pausar() void
+        +selecionarMusica(String musica) void
+    }
+
+    interface AparelhoTelefonico {
+        <<interface>>
+        +ligar(String numero) void
+        +atender() void
+        +iniciarCorreioVoz() void
+    }
+
+    interface NavegadorInternet {
+        <<interface>>
+        +exibirPagina(String url) void
+        +adicionarNovaAba() void
+        +atualizarPagina() void
+    }
+
+    iPhone --|> ReprodutorMusical
+    iPhone --|> AparelhoTelefonico
+    iPhone --|> NavegadorInternet
