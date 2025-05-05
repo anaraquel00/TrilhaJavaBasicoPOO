@@ -44,7 +44,7 @@ Este projeto implementa uma representação em Java das funcionalidades básicas
     iPhone ..|> AparelhoTelefonico
     iPhone ..|> NavegadorInternet
 
-#🛠️ Funcionalidades Implementadas
+# 🛠️ Funcionalidades Implementadas
 
 # 🔊 Reprodutor Musical
 tocar(): Inicia a reprodução musical
